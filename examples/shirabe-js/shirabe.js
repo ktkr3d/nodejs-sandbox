@@ -31,13 +31,9 @@ var menubar = app.createMenu([{
 		}, function( err , files ) {
 			// save the file using fs module according to files array.
 			playlist = files;
-//			console.log(playlist);
-//			console.log(playlist[0]);
 
 			file_3v2 = fs.readFileSync(playlist[0]);
 			id3_3v2 = new ID3(file_3v2);
-			//console.log(id3_3v2.getTags());
-
 			id3_3v2.parse();
 			artist = id3_3v2.get('artist');
 			title = id3_3v2.get('title');
