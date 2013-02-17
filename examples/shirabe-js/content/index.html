@@ -6,17 +6,6 @@
 <script type="text/javascript" src="libs/jquery-1.8.2.min.js"></script>
 <script type="text/javascript">
 <!--
-$(function() {
-	$("#toolbar").hover(
-		function () {
-			$("#play").css("visibility", "visible");
-		},
-		function () {
-			$("#play").css("visibility", "hidden");
-		}
-	)
-})
-
 function updateTrackInfo(trackInfo)
 {
     document.getElementById("trackInfo").innerText = trackInfo;
@@ -37,7 +26,7 @@ function changeAlbumArtSize(size)
 </head>
 <body>
 <div id="container">
-	<div id="main"><div id="toolbar" style="width: 100%; padding: 10px; text-align: center; height: 30px;"><span id="play">Play</span></div></div>
+	<div id="main"></div>
 	<div id="sub"><div id="song"><span id="trackInfo"></span></div></div>
 </div>
 </body>
