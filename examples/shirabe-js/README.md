@@ -13,4 +13,6 @@ $ npm install -g lame speaker lastfm
 How to use
 -------
 
-node --harmony shirabe.js <YOUR API KEY>
+``` bash
+$ node --harmony shirabe.js <YOUR API KEY>
+```
