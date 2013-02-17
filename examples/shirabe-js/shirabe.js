@@ -1,9 +1,7 @@
 var app = module.exports = require('appjs');
 var fs = require('fs');
 var lame = require('lame');
-var decoder = new lame.Decoder();
 var Speaker = require('speaker');
-var speaker = new Speaker();
 var ID3 = require('id3')
 
 var LastFmNode = require('lastfm').LastFmNode;
@@ -85,10 +83,10 @@ var menubar = app.createMenu([{
       label:'再生(&P)',
       action:function(){
 		fs.createReadStream(playlist[0])
-		  .pipe(decoder)
+		  .pipe(new lame.Decoder())
 		  .on('format', function (format) {
 			console.error(format);
-			this.pipe(speaker);
+			this.pipe(new Speaker());
 		  });
       }
     },{
@@ -149,23 +147,6 @@ var menubar = app.createMenu([{
     },
   ]
 },{
-  label:'ツール(&S)',
-  submenu:[
-    {
-      label:'開発ツール(&T)',
-      action:function(){
-      window.frame.openDevTools();
-      }
-    },{
-      label:''//separator
-    },{
-      label:'情報(&A)',
-      action:function(){
-        window.frame.restore();
-      }
-    }
-  ]
-},{
   label:'ヘルプ(&H)',
   submenu:[
     {
@@ -206,7 +187,7 @@ var trayMenu = app.createMenu([{
 }]);
 
 var statusIcon = app.createStatusIcon({
-  icon:'./data/content/icons/32.png',
+  icon:'./content/icons/32.png',
   tooltip:'AppJS Hello World',
   showChrome : false,
   alpha: true,
