@@ -9,7 +9,7 @@ var lastfm = new LastFmNode({
   api_key: process.argv[2]
 });
 
-var playlist = '';
+var playlist = '', repeat = -1;
 var file_3v2, id3_3v2;
 var artist, title, album;
 
@@ -58,13 +58,11 @@ var menubar = app.createMenu([{
 					}
 				}
 			});
-
-			console.log('end.');
-
 		});
 	  }
-	},
-	{
+	},{
+	  label:''//separator
+	},{
 	  label:'終了(&Q)',
 	  action: function(){
 		window.close();
@@ -81,17 +79,26 @@ var menubar = app.createMenu([{
 		  .pipe(new lame.Decoder())
 		  .on('format', function (format) {
 //			console.error(format);
-			this.pipe(new Speaker());
+			this.pipe(new Speaker())
+		    .on('close', function () {
+			  console.error('closed');
+			})
 		  });
 	  }
-	},{
-	  label:''//separator
 	},{
 	  label:'停止(&S)',
 	  action:function(){
 //        speaker.flush();
 		speaker.close();
 	  }
+	},{
+	  label:''//separator
+	},{
+	  label:'リピート(&R)',
+	  action:function(){
+		  repeat = repeat * -1;
+		  console.error(repeat);
+      }
 	}
   ]
 },{
