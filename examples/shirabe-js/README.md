@@ -8,11 +8,13 @@ Installation
 ``` bash
 $ sudo apt-get install libasound2-dev
 $ npm install -g lame speaker lastfm
+$ git clone https://github.com/ktkr3d/nodejs-sandbox.git nodejs-sandbox
 ```
 
 How to use
 -------
 
 ``` bash
+$ cd nodejs-sandbox/examples/shirabe-js
 $ node --harmony shirabe.js <YOUR last.fm API KEY>
 ```
