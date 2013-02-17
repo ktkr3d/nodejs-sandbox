@@ -18,9 +18,9 @@ app.serveFilesFrom(__dirname + '/content');
 var menubar = app.createMenu([{
   label:'ファイル(&F)',
   submenu:[
-    {
-      label:'開く...(&O)',
-      action: function(){
+	{
+	  label:'開く...(&O)',
+	  action: function(){
 		window.frame.openDialog({
 			type: 'open', // Either open or save
 			title: 'Open...', // Dialog title, default is window title
@@ -62,101 +62,101 @@ var menubar = app.createMenu([{
 			console.log('end.');
 
 		});
-      }
-    },
-    {
-      label:'終了(&Q)',
-      action: function(){
-        window.close();
-      }
-    }
+	  }
+	},
+	{
+	  label:'終了(&Q)',
+	  action: function(){
+		window.close();
+	  }
+	}
   ]
 },{
   label:'再生(&P)',
   submenu:[
-    {
-      label:'再生(&P)',
-      action:function(){
+	{
+	  label:'再生(&P)',
+	  action:function(){
 		fs.createReadStream(playlist[0])
 		  .pipe(new lame.Decoder())
 		  .on('format', function (format) {
 //			console.error(format);
 			this.pipe(new Speaker());
 		  });
-      }
-    },{
-      label:''//separator
-    },{
-      label:'停止(&S)',
-      action:function(){
+	  }
+	},{
+	  label:''//separator
+	},{
+	  label:'停止(&S)',
+	  action:function(){
 //        speaker.flush();
-        speaker.close();
-      }
-    }
+		speaker.close();
+	  }
+	}
   ]
 },{
   label:'表示(&V)',
   submenu:[
-    {
-      label:'Fullscreen',
-      action:function(item) {
-        window.frame.fullscreen();
-        console.log(item.label+" called.");
-      }
-    },
-    {
-      label:'Minimize',
-      action:function(){
-        window.frame.minimize();
-      }
-    },
-    {
-      label:'Maximize',
-      action:function(){
-        window.frame.maximize();
-      }
-    },
-    {
-      label:''//separator
-    },
-    {
-      label:'Restore',
-      action:function(){
-        window.frame.restore();
-      }
-    },
-    {
-      label:''//separator
-    },
-    {
-      label:'Album Art Cover',
-      action:function(){
-        window.changeAlbumArtSize('cover');
-      }
-    },
-    {
-      label:'Album Art Contain',
-      action:function(){
-        window.changeAlbumArtSize('contain');
-      }
-    },
+	{
+	  label:'Fullscreen',
+	  action:function(item) {
+		window.frame.fullscreen();
+		console.log(item.label+" called.");
+	  }
+	},
+	{
+	  label:'Minimize',
+	  action:function(){
+		window.frame.minimize();
+	  }
+	},
+	{
+	  label:'Maximize',
+	  action:function(){
+		window.frame.maximize();
+	  }
+	},
+	{
+	  label:''//separator
+	},
+	{
+	  label:'Restore',
+	  action:function(){
+		window.frame.restore();
+	  }
+	},
+	{
+	  label:''//separator
+	},
+	{
+	  label:'Album Art Cover',
+	  action:function(){
+		window.changeAlbumArtSize('cover');
+	  }
+	},
+	{
+	  label:'Album Art Contain',
+	  action:function(){
+		window.changeAlbumArtSize('contain');
+	  }
+	},
   ]
 },{
   label:'ヘルプ(&H)',
   submenu:[
-    {
-      label:'開発ツール(&T)',
-      action:function(){
+	{
+	  label:'開発ツール(&T)',
+	  action:function(){
 		window.frame.openDevTools()
-      }
-    },{
-      label:''//separator
-    },{
-      label:'情報(&A)',
-      action:function(){
-        window.frame.restore();
-      }
-    }
+	  }
+	},{
+	  label:''//separator
+	},{
+	  label:'情報(&A)',
+	  action:function(){
+		window.frame.restore();
+	  }
+	}
   ]
 }]);
 
@@ -167,17 +167,17 @@ menubar.on('select',function(item){
 var trayMenu = app.createMenu([{
   label:'Show',
   action:function(){
-    window.frame.show();
+	window.frame.show();
   },
 },{
   label:'Minimize',
   action:function(){
-    window.frame.hide();
+	window.frame.hide();
   }
 },{
   label:'Exit',
   action:function(){
-    window.close();
+	window.close();
   }
 }]);
 
@@ -212,9 +212,9 @@ window.on('ready', function(){
   function Command_Option_J(e){ return e.keyCode === 74 && e.metaKey && e.altKey }
 
   window.addEventListener('keydown', function(e){
-    if (F12(e) || Command_Option_J(e)) {
-      window.frame.openDevTools();
-    }
+	if (F12(e) || Command_Option_J(e)) {
+	  window.frame.openDevTools();
+	}
   });
   window.addEventListener("drop", drop);
 });
@@ -224,13 +224,13 @@ window.on('close', function(){
 });
 
 var drop = function(event) {
-    event.preventDefault();
-    var dt = event.dataTransfer;
-    var files = dt.files;
-    for (var i = 0; i<files.length; i++) {
-        var file = files[i];
-        console.log(file);
-        // File is an object having lastModifiedDate, name, size, type, webkitRelativePath
-    }
+	event.preventDefault();
+	var dt = event.dataTransfer;
+	var files = dt.files;
+	for (var i = 0; i<files.length; i++) {
+		var file = files[i];
+		console.log(file);
+		// File is an object having lastModifiedDate, name, size, type, webkitRelativePath
+	}
 }
 
