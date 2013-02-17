@@ -1,6 +1,6 @@
 shirabe-js
 =========
-### shirabe-js: desktop music player application with node.js and AppJS
+Desktop music player application with node.js and AppJS
 
 Installation
 ------------
