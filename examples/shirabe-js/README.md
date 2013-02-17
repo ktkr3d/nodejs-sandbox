@@ -7,7 +7,7 @@ Installation
 
 ``` bash
 $ sudo apt-get install libasound2-dev
-$ npm install -g lame speaker lastfm
+$ npm install -g lame speaker lastfm id3
 $ git clone https://github.com/ktkr3d/nodejs-sandbox.git nodejs-sandbox
 ```
 
@@ -23,4 +23,4 @@ Restriction
 -----------
 
 - Need last.fm API Key
-- Need MP3 with ID3 Tags(artist, title)
+- Need MP3 with ID3 Tags(album, artist, title)
