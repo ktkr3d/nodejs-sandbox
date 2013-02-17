@@ -8,19 +8,18 @@
 <!--
 function updateTrackInfo(trackInfo)
 {
-    document.getElementById("trackInfo").innerText = trackInfo;
+    $("#trackInfo").html(trackInfo);
 }
 
 function updateAlbumArt(albumArt)
 {
-    document.getElementById("container").style.backgroundImage = 'url(' + albumArt + ')';
+    $("#container").css("background-image", "url(" + albumArt + ")");
 }
 
 function changeAlbumArtSize(size)
 {
-    document.getElementById("container").style.backgroundSize = size;
+    $("#container").css("background-size", size);
 }
-
 // -->
 </script>
 </head>
