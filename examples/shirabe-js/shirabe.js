@@ -11,25 +11,6 @@ var lastfm = new LastFmNode({
   api_key: process.argv[2]
 });
 
-console.log(process.argv[2]);
-
-/*
-var request = lastfm.request("artist.getInfo", {
-    artist: "Supercell",
-    handlers: {
-        success: function(data) {
-            console.log("Success: " + data.artist.name);
-            console.log("Success: " + data.artist.url);
-            console.log("Success: " + data.artist.image[4]['#text']);
-			window.updateAlbumArt(data.artist.image[4]['#text']);
-        },
-        error: function(error) {
-            console.log("Error: " + error.message);
-        }
-    }
-});
-*/
-
 var playlist = '';
 var file_3v2;
 var id3_3v2;
