@@ -14,5 +14,5 @@ How to use
 -------
 
 ``` bash
-$ node --harmony shirabe.js <YOUR API KEY>
+$ node --harmony shirabe.js <YOUR last.fm API KEY>
 ```
