@@ -31,8 +31,8 @@ var menubar = app.createMenu([{
 		}, function( err , files ) {
 			// save the file using fs module according to files array.
 			playlist = files;
-			console.log(playlist);
-			console.log(playlist[0]);
+//			console.log(playlist);
+//			console.log(playlist[0]);
 
 			file_3v2 = fs.readFileSync(playlist[0]);
 			id3_3v2 = new ID3(file_3v2);
@@ -85,7 +85,7 @@ var menubar = app.createMenu([{
 		fs.createReadStream(playlist[0])
 		  .pipe(new lame.Decoder())
 		  .on('format', function (format) {
-			console.error(format);
+//			console.error(format);
 			this.pipe(new Speaker());
 		  });
       }
