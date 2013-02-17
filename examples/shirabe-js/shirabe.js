@@ -10,8 +10,7 @@ var lastfm = new LastFmNode({
 });
 
 var playlist = '';
-var file_3v2;
-var id3_3v2;
+var file_3v2, id3_3v2;
 var artist, title, album;
 
 app.serveFilesFrom(__dirname + '/content');
