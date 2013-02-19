@@ -81,7 +81,7 @@ var menubar = app.createMenu([{
 //			console.error(format);
 			this.pipe(new Speaker())
 		    .on('close', function () {
-			  console.error('closed');
+			  console.log('closed');
 			})
 		  });
 	  }
