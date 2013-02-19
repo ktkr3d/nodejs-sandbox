@@ -22,5 +22,4 @@ $ node --harmony shirabe.js <YOUR last.fm API KEY>
 Restriction
 -----------
 
-- Need last.fm API Key
-- Need MP3 with ID3 Tags(album, artist, title)
+- Need *last.fm API Key* and *MP3 with ID3 Tags(album, artist, title)* for Downloading album arts.
